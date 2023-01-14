@@ -36,7 +36,7 @@ export const Header = () => {
   const { setIsOpenSuccess, setAlertMessage } = useContext(AlertContext);
 
   const handleClickNavMenu = (path) => {
-    path == "contact" ? setOpenContact(path == "contact") : navigate(path);
+    path == "contact" ? setOpenContact(true) : navigate(path);
 
   };
 
@@ -126,7 +126,6 @@ export const Header = () => {
                     mr: 3,
                     my: "auto",
                     color: 'inherit',
-                    display: currentUser.isGest && item.path == "contact" ? "none" : "flex",
                     textTransform: "none"
                   }}
                 >

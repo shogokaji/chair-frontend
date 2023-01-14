@@ -22,7 +22,6 @@ export const HomeLayout = ({ children }) => {
       }
 
       useEffect(() => {
-            //  !currentUser.isSetup && setIsFirstLogin(true) 
             handleAlert()
       }, [location]);
 

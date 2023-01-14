@@ -62,18 +62,16 @@ export const DrawerList = (props) => {
       </Button>
 
       <List sx={{ mt: 2, width: drawerWidth, textAlign: "center" }}>
-        {!currentUser.isGest &&
-          <ListItemButton
-            sx={{ textAlign: "center", width: "80%", mx: "auto" }}
-            onClick={() => onClickMenuItem("contact")}
-          >
-            <ListItemText
-              secondary="お問い合わせ"
-              secondaryTypographyProps={{
-                fontSize: "12px",
-              }} />
-          </ListItemButton>
-        }
+        <ListItemButton
+          sx={{ textAlign: "center", width: "80%", mx: "auto" }}
+          onClick={() => onClickMenuItem("contact")}
+        >
+          <ListItemText
+            secondary="お問い合わせ"
+            secondaryTypographyProps={{
+              fontSize: "12px",
+            }} />
+        </ListItemButton>
         <ListItemButton
           sx={{ textAlign: "center", width: "80%", mx: "auto" }}
           onClick={() => onClickMenuItem("/about")}

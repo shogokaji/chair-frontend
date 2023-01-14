@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams, Outlet, useLocation } from "react-router-dom";
 import { getDiary } from "../../api/diary";
 import { MainHeader } from "../atoms/layout/MainHeader";
-import { getLikes, getUser } from "../../api/user";
+import { getLikes, getUser, setUpUser } from "../../api/user";
 import { AuthContext } from "../../providers/AuthProvider";
 import { DiaryContext } from "../../providers/DiaryProvider";
 import { ProfileBody } from "../molcules/ProfileBody";
@@ -26,8 +26,6 @@ export const Profile = () => {
   const [openEditer, setOpenEditer] = useState(false);
   const [likedDiaries, setLikedDiaries] = useState();
   const [openSetup, setOpenSetup] = useState(false);
-
-  //currentUser.id===user.id?で毎回判断すべきか?
   const [isOtherUser, setIsOtherUser] = useState();
 
   const { currentUser } = useContext(AuthContext);
@@ -72,9 +70,13 @@ export const Profile = () => {
       navigate(`/${targetUser.id}/likes`);
   };
 
-  const completeSetup = async () => {
+  const completeSetup = () => {
     setOpenSetup(false);
-    setOpenEditer(true);
+
+    currentUser.isGest ?
+      setUpUser()
+      :
+      setOpenEditer(true)
   }
 
   // pathname次第でどちらのタブか分岐
@@ -117,7 +119,8 @@ export const Profile = () => {
             openEditer={openEditer}
             setOpenEditer={setOpenEditer}
           />
-          {!currentUser.isGest && <StartModal open={openSetup} completeSetup={completeSetup} />}
+          <StartModal open={openSetup} completeSetup={completeSetup} />
+
         </Box>
 
         <TabContext value={value}>

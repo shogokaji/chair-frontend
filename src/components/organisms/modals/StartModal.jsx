@@ -5,12 +5,15 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Typography } from "@mui/material";
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 export const StartModal = (props) => {
   const { completeSetup, open } = props;
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
+  const { currentUser } = useContext(AuthContext);
 
   const handleNext = () => {
     activeStep === 1 ?
@@ -37,8 +40,17 @@ export const StartModal = (props) => {
         }
         {activeStep === 1 &&
           <Typography fontSize="14px" height="145px" sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            最初にプロフィールを設定してみましょう。<br /><br />
-            プロフィールはいつでも変更できます。<br />
+            {currentUser.isGest ?
+              <>
+                メッセージ、コメント機能には制限がありますが、<br />
+                日記を投稿したり、メニューの「探す」からユーザーや日記を見ることができます。
+              </>
+              :
+              <>
+                最初にプロフィールを設定してみましょう。<br /><br />
+                プロフィールはいつでも変更できます。<br />
+              </>
+            }
           </Typography>
         }
       </DialogContent>

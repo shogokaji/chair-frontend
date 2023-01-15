@@ -74,7 +74,7 @@ export const SignIn = () => {
           width: "100%", height: '100vh', my: "auto",
           bgcolor: "rgba(255,255,255,0.4)",
           backgroundBlendMode: "lighten",
-          backgroundImage: 'url(http://localhost:8000/top.png)',
+          backgroundImage: `url(${process.env.REACT_APP_WEB_DOMEIN}/top.png)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: "right",

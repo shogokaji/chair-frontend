@@ -86,12 +86,12 @@ export const MessagesIndex = () => {
                                     <Box sx={{ position: "absolute", top: 5, right: 15, display: "flex" }}>
                                        {lastMessage.userId == otherUser.id ?
                                           lastMessage.read ?
+                                             <Typography fontSize="10px" color="gray">既読</Typography>
+                                             :
                                              <>
                                                 <FiberManualRecordIcon sx={{ color: "#00FF00", fontSize: "16px" }} />
                                                 <Typography fontSize="10px" color="gray">未読</Typography>
                                              </>
-                                             :
-                                             <Typography fontSize="10px" color="gray">既読</Typography>
                                           :
                                           <></>
                                        }

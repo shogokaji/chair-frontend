@@ -12,3 +12,9 @@ export const client = applyCaseMiddleware(
  options
 );
 
+client.interceptors.response.use(
+ (response) => response,
+ (error) => {
+  alert("通信に問題が発生しました。")
+ }
+);

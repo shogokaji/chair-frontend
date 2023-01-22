@@ -18,13 +18,15 @@ const sortButtonItems = [
   { str: "キーワード検索", sort: "keyWord" }
 ]
 
+const ALL = 12
+
 export const SearchDiaries = () => {
   //ソート前,後で分けてリストを柔軟に変動させる
   const [diaries, setDiaries] = useState();
   const [sortedDiaries, setSortedDiaries] = useState();
 
   //ソート用の診療科、Select用
-  const [value, setValue] = useState(12);
+  const [value, setValue] = useState(ALL);
 
   const [sortTarget, setSortTarget] = useState("like");
   const [likingUsers, setLikingUsers] = useState();
@@ -59,7 +61,7 @@ export const SearchDiaries = () => {
   //Sortボタン
   const handleClick = (value) => {
     setSortTarget(value);
-    setValue(12);
+    setValue(ALL);
 
     value == "keyWord" ?
       setOpenModal(true)
@@ -83,8 +85,8 @@ export const SearchDiaries = () => {
   const onChangeDepartment = (event, newValue) => {
     setValue(event.target.value);
     setSortedDiaries(
-      event.target.value == 12 ?
-        diaries  //12の"全ての診療科"であればソート前の一覧を返す
+      event.target.value == ALL ?
+        diaries  //"全ての診療科"であればソート前の一覧を返す
         :
         diaries.filter((value) => value.user.department == event.target.value)
     )

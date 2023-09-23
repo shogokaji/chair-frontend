@@ -6,7 +6,7 @@
   
 <img width="60%" height="60%" src="https://user-images.githubusercontent.com/98445266/211117974-8bfad69b-3611-4b96-a41c-95227cb3904b.png">
   
-#### URL: https://web.chair-app.com  
+#### ~~URL: [https://web.chair-app.com](~~https://web.chair-app.com~~)~~  
 DM機能、コメント機能に制限はありますが、ゲストログインでお試しいただけます。
 
 ### 使用技術
